@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Бобровая академия «Плотина Знаний» — курсы дрессировки бобров</title>
+<style>
+  :root{
+    --ink: #2b2118;
+    --brown-dark: #3b2a1e;
+    --brown: #6b4a2f;
+    --sand: #f5ecd9;
+    --sand-deep: #e2d2b3;
+    --accent: #2f7a5f;
+    --accent-soft: #d9efe4;
+    --card: #fffdf7;
+    --radius: 1.25rem;
+    --shadow: 0 1rem 2.25rem rgba(59, 42, 30, 0.14);
+  }
+
+  *,
+  *::before,
+  *::after{
+    box-sizing: border-box;
+  }
+
+  html{
+    scroll-behavior: smooth;
+  }
+
+  body{
+    margin: 0;
+    font-family: "Segoe UI", Roboto, Verdana, sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--ink);
+    background:
+      radial-gradient(circle at 15% 0%, #fdf8ec 0%, #eee2c9 45%, #dfcfae 100%);
+    background-attachment: fixed;
+  }
+
+  /* ---------- Шапка ---------- */
+  .site-header{
+    padding: 2.5rem 1.25rem 1.75rem;
+    color: var(--sand);
+    text-align: center;
+    background: linear-gradient(135deg, #2b1d14 0%, var(--brown) 70%, #8a6242 100%);
+    border-bottom: 0.4rem solid var(--accent);
+    box-shadow: var(--shadow);
+  }
+
+  .header-inner{
+    max-width: 70rem;
+    margin: 0 auto;
+  }
+
+  .eyebrow{
+    margin: 0 0 0.5rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #cfe6d8;
+  }
+
+  h1{
+    margin: 0;
+    font-size: clamp(1.6rem, 4.2vw, 2.9rem);
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+  }
+
+  .tagline{
+    max-width: 42rem;
+    margin: 0.9rem auto 0;
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    color: #ecdfc7;
+  }
+
+  .tagline mark{
+    background: #ffd97a;
+    color: var(--brown-dark);
+  }
+
+  /* ---------- Навигация ---------- */
+  nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.7rem;
+    margin: 1.6rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  nav a{
+    display: inline-block;
+    padding: 0.45rem 1.1rem;
+    font-size: 0.95rem;
+    color: var(--sand);
+    text-decoration: none;
+    border: 1px solid rgba(245, 236, 217, 0.45);
+    border-radius: 999px;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  }
+
+  nav a:hover,
+  nav a:focus-visible{
+    color: #ffffff;
+    background-color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  /* ---------- Основной контент ---------- */
+  main{
+    display: grid;
+    gap: 2rem;
+    max-width: 70rem;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem;
+  }
+
+  section{
+    padding: clamp(1.25rem, 3vw, 2.5rem);
+    background: var(--card);
+    border: 1px solid var(--sand-deep);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+
+  h2{
+    margin: 0 0 1.4rem;
+    padding-left: 0.75rem;
+    font-size: clamp(1.35rem, 2.7vw, 1.9rem);
+    line-height: 1.3;
+    color: var(--brown-dark);
+    border-left: 0.5rem solid var(--accent);
+  }
+
+  h3{
+    margin: 0 0 0.9rem;
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    color: var(--accent);
+  }
+
+  p{
+    margin: 0 0 1rem;
+  }
+
+  article + article{
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px dashed var(--sand-deep);
+  }
+
+  .split{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.75rem;
+    align-items: start;
+  }
+
+  /* ---------- Изображения ---------- */
+  figure{
+    margin: 0;
+  }
+
+  figure img{
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 0.3rem solid #ffffff;
+    border-radius: 0.9rem;
+    box-shadow: 0 0.6rem 1.4rem rgba(59, 42, 30, 0.28);
+  }
+
+  figcaption{
+    margin-top: 0.6rem;
+    font-size: 0.85rem;
+    font-style: italic;
+    text-align: center;
+    color: var(--brown);
+  }
+
+  /* ---------- Списки и цитаты ---------- */
+  ul,
+  ol{
+    margin: 0 0 1rem;
+    padding-left: 1.35rem;
+  }
+
+  li{
+    margin-bottom: 0.45rem;
+  }
+
+  ol li::marker{
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  blockquote{
+    margin: 1.5rem 0 0;
+    padding: 1rem 1.25rem;
+    font-style: italic;
+    background: var(--accent-soft);
+    border-left: 0.35rem solid var(--accent);
+    border-radius: 0 0.75rem 0.75rem 0;
+  }
+
+  blockquote cite{
+    display: block;
+    margin-top: 0.6rem;
+    font-size: 0.85rem;
+    font-style: normal;
+    color: var(--brown);
+  }
+
+  mark{
+    padding: 0 0.25em;
+    background: #ffe9a8;
+    border-radius: 0.25em;
+  }
+
+  a{
+    color: var(--accent);
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.15em;
+  }
+
+  a:hover{
+    color: var(--brown-dark);
+  }
+
+  /* ---------- Таблица ---------- */
+  .table-wrap{
+    overflow-x: auto;
+    margin-top: 1rem;
+  }
+
+  table{
+    width: 100%;
+    min-width: 24rem;
+    font-size: 0.95rem;
+    border-collapse: collapse;
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+
+  caption{
+    padding-bottom: 0.6rem;
+    font-weight: 700;
+    text-align: left;
+    color: var(--brown);
+  }
+
+  th,
+  td{
+    padding: 0.6rem 0.85rem;
+    text-align: left;
+    border-bottom: 1px solid var(--sand-deep);
+  }
+
+  thead th{
+    background: var(--sand);
+    color: var(--brown-dark);
+  }
+
+  tbody tr:nth-child(even){
+    background: #fbf6ea;
+  }
+
+  /* ---------- Детали ---------- */
+  details{
+    margin: 0.8rem 0;
+    padding: 0.85rem 1.1rem;
+    background: var(--sand);
+    border: 1px solid var(--sand-deep);
+    border-radius: 0.75rem;
+  }
+
+  summary{
+    font-weight: 700;
+    color: var(--brown-dark);
+    cursor: pointer;
+  }
+
+  details[open] summary{
+    margin-bottom: 0.6rem;
+  }
+
+  details p:last-child{
+    margin-bottom: 0;
+  }
+
+  /* ---------- Боковая заметка ---------- */
+  aside{
+    margin-top: 2rem;
+    padding: 1.25rem 1.5rem;
+    background: linear-gradient(160deg, #eef7f1 0%, #dcece4 100%);
+    border: 1px solid #b9d6c9;
+    border-radius: 1rem;
+  }
+
+  aside h3{
+    color: var(--brown-dark);
+  }
+
+  /* ---------- Подвал ---------- */
+  footer{
+    margin-top: 2rem;
+    padding: 2rem 1.25rem;
+    color: var(--sand);
+    background: linear-gradient(135deg, var(--brown-dark), #241812);
+    border-top: 0.4rem solid var(--accent);
+  }
+
+  .footer-inner{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: space-between;
+    max-width: 70rem;
+    margin: 0 auto;
+  }
+
+  footer h2{
+    margin: 0 0 0.7rem;
+    padding: 0;
+    font-size: 1.15rem;
+    color: #cfe6d8;
+    border: 0;
+  }
+
+  address{
+    font-style: normal;
+    line-height: 1.7;
+  }
+
+  footer a{
+    color: #a9e3c9;
+  }
+
+  footer a:hover{
+    color: #ffffff;
+  }
+
+  .footer-note{
+    font-size: 0.85rem;
+    color: #cdbfa8;
+  }
+
+  /* ---------- Адаптивность ---------- */
+  @media (max-width: 48rem){
+    .split{
+      grid-template-columns: 1fr;
+    }
+
+    main{
+      padding: 1.5rem 1rem;
+      gap: 1.5rem;
+    }
+
+    .site-header{
+      padding: 2rem 1rem 1.5rem;
+    }
+
+    .footer-inner{
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 30rem){
+    body{
+      font-size: 0.95rem;
+    }
+
+    nav a{
+      padding: 0.4rem 0.9rem;
+      font-size: 0.85rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <div class="header-inner">
+    <p class="eyebrow">Практическая работа по веб-разметке</p>
+    <h1>Бобровая академия «Плотина Знаний»</h1>
+    <p class="tagline">Учим бобров строить, а людей — <mark>терпеливо ждать</mark>, пока плотина наконец достроится.</p>
+    <nav aria-label="Основная навигация по странице">
+      <ul>
+        <li><a href="#basics">Основы</a></li>
+        <li><a href="#program">Программа</a></li>
+        <li><a href="#practice">Практика</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section id="basics">
+    <h2>Основы: зачем вообще дрессировать бобра</h2>
+    <article>
+      <h3>Бобр — не хомяк: базовые принципы</h3>
+      <div class="split">
+        <figure>
+          <img src="img-1.png" alt="Молодой бобр сидит на берегу лесного ручья и держит в передних лапах свежесрезанную ветку ивы">
+          <figcaption>Первое занятие: знакомство с веткой ивы. Курсант по кличке Грызун настроен крайне серьёзно.</figcaption>
+        </figure>
+        <div>
+          <p>Бобр — животное с характером и <strong>инженерным складом ума</strong>. Он не станет возводить плотину там, где ему не нравится течение, и не потащит ветку, если её, в принципе, можно не тащить. Именно поэтому дрессировка начинается не с команды «сидеть», а с честного договора о сотрудничестве.</p>
+          <p>Наш курс рассчитан на <time datetime="2026-04-01">весенний сезон 2026 года</time> — пору, когда у бобров особенно много энергии, а у инструкторов особенно много терпения.</p>
+          <p>В первую очередь мы тренируем:</p>
+          <ul>
+            <li>реакцию на имя, свисток и характерное пощёлкивание языком;</li>
+            <li>перенос веток по заданному маршруту без остановок на перекус;</li>
+            <li>строительство мини-плотины в специально подготовленной песочнице;</li>
+            <li>спокойное отношение к фотоаппарату, зевакам и экскурсиям школьников.</li>
+          </ul>
+        </div>
+      </div>
+      <blockquote>
+        «Бобр не выполняет команду — он соглашается с предложением. Разница принципиальная, и осознать её — половина курса».
+        <cite>Игорь Хвостов, старший инструктор академии</cite>
+      </blockquote>
+    </article>
+  </section>
+
+  <section id="program">
+    <h2>Программа обучения: от веточки до плотины</h2>
+
+    <article>
+      <h3>Три уровня подготовки</h3>
+      <p>Обучение построено по принципу «сначала спина, потом плотина»: мы не требуем от бобра инженерных подвигов, пока он не научился уверенно держать ветку и не пугаться воды.</p>
+      <ol>
+        <li><strong>Уровень «Веточка»</strong> — базовый контакт с инструктором и перенос лёгкого материала.</li>
+        <li><strong>Уровень «Колья»</strong> — работа в паре, укладка опор и первые попытки гидроизоляции илом.</li>
+        <li><strong>Уровень «Плотина»</strong> — самостоятельный проект под присмотром инструктора и защита работы перед комиссией.</li>
+      </ol>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Расписание занятий на весенний сезон</caption>
+          <thead>
+            <tr>
+              <th scope="col">Уровень</th>
+              <th scope="col">Длительность</th>
+              <th scope="col">Занятий в неделю</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Веточка</td>
+              <td>2 недели</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>Колья</td>
+              <td>4 недели</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>Плотина</td>
+              <td>6 недель</td>
+              <td>2 + выезд на выходных</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <details>
+        <summary>Что делать, если бобр уплыл посреди занятия?</summary>
+        <p>Не бежать за ним по берегу и не кричать. Сядьте на бревно, доставьте из кармана ветку ивы и подождите: любопытство у бобра сильнее, чем обида. В 9 случаях из 10 курсант возвращается сам в течение <time datetime="PT10M">десяти минут</time>.</p>
+      </details>
+    </article>
+
+    <article>
+      <h3>Техника безопасности на площадке</h3>
+      <div class="split">
+        <figure>
+          <img src="img-2.png" alt="Инструктор в резиновых сапогах и перчатках показывает бобру, как правильно укладывать ветки в основание плотины">
+          <figcaption>Мастер-класс по укладке основания: инструктор показывает, бобр критически оценивает.</figcaption>
+        </figure>
+        <div>
+          <p>Бобр — существо сильное, зубастое и крайне убеждённое в своей правоте. Поэтому правила просты и не обсуждаются:</p>
+          <ul>
+            <li>никогда не вставайте между бобром и его стройматериалом;</li>
+            <li>работайте только в плотных перчатках и резиновых сапогах;</li>
+            <li>не пытайтесь погладить мокрого бобра — он воспримет это как предложение побороться;</li>
+            <li>держите аптечку и запасной свисток на расстоянии вытянутой руки.</li>
+          </ul>
+          <p>Все занятия проходят под присмотром двух инструкторов, а группа никогда не превышает <mark>пяти человек и трёх бобров</mark>.</p>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section id="practice">
+    <h2>Полевая практика и дневник наблюдений</h2>
+
+    <article>
+      <h3>Как проходит день на площадке</h3>
+      <p>Практика начинается на рассвете — именно тогда бобры наиболее работоспособны, а комары наиболее голодны. Каждый день строится по одному и тому же распорядку:</p>
+      <ol>
+        <li>Осмотр территории и проверка вчерашней кладки.</li>
+        <li>Разминка: короткая пробежка за веткой и упражнения на равновесие.</li>
+        <li>Основная работа над проектом плотины под руководством инструктора.</li>
+        <li>Запись наблюдений в общий дневник группы.</li>
+      </ol>
+      <p>Подробнее о биологии и повадках наших курсантов можно прочитать в <a href="https://ru.wikipedia.org/wiki/Бобры" target="_blank" rel="noopener noreferrer">свободной энциклопедии</a>, а расписание выездов уточняйте у координатора группы.</p>
+    </article>
+
+    <aside>
+      <h3>Заметки на полях</h3>
+      <figure>
+        <img src="img-3.png" alt="Бобр ранним утром у почти готовой плотины, над водой поднимается туман, на заднем плане лес">
+        <figcaption>Утро четвёртой недели: плотина почти готова, туман почти рассеялся.</figcaption>
+      </figure>
+      <p>Самая частая ошибка новичков — <mark>торопить события</mark>. Бобр чувствует спешку и начинает работать медленнее, словно назло. Мы советуем первые две недели вообще никуда не торопиться: наблюдение — тоже часть дрессировки.</p>
+      <details>
+        <summary>Три признака, что бобр вами доволен</summary>
+        <p>Он не уходит при вашем приближении, принимает ветку из рук и шлёпает хвостом по воде ровно один раз — это не угроза, а приветствие.</p>
+      </details>
+    </aside>
+  </section>
+
+</main>
+
+<footer id="contacts">
+  <div class="footer-inner">
+    <div>
+      <h2>Как нас найти</h2>
+      <address>
+        Академия «Плотина Знаний»<br>
+        ул. Прибрежная, 12, корпус «Бобровая заводь»<br>
+        г. Сосновый Бор, 188540<br>
+        Телефон: <a href="tel:+78123456789">+7 (812) 345-67-89</a><br>
+        Почта: <a href="mailto:privet@plotina-znaniy.ru">privet@plotina-znaniy.ru</a>
+      </address>
+    </div>
+    <div>
+      <p class="footer-note">Приём заявок открыт до <time datetime="2027-03-25">25 марта 2027 года</time>.</p>
+      <p class="footer-note">© 2026 Бобровая академия «Плотина Знаний». Все бобры обучены, все ветки учтены.</p>
+      <p class="footer-note"><a href="#top">Вернуться наверх</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
